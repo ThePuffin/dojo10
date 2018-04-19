@@ -8,12 +8,12 @@ function crypto(motdepasse, hash) {
     const result = tabHash.filter(
       elementhash => elementhash.toLowerCase() == elementMDP
     );
-    resultab.push(result[0].toLowerCase());
+    result.length > 0 ? resultab.push(result[0].toLowerCase()) : null;
   });
-  //   console.log(resultab);
+  // console.log(resultab);
   //   console.log(resultab.join(""));
   let compare = Object.is(motdepasse, resultab.join(""));
   console.log(compare);
 }
 
-crypto("mdp", "daMdtp");
+crypto("mdpe", "daMdtp");
