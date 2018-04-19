@@ -23,22 +23,28 @@
 function kdigits(n, k) {
   let tabN = [...n.toString()];
 
-  tabN = tabN.map(string => parseInt(string));
+  tabN = tabN.map(string => parseInt(string)).sort();
+  //console.log(tabN);
 
   const tableauSimple = tabN.filter(
     (item, pos, self) => self.indexOf(item) === pos
   );
+  console.log(tableauSimple);
 
   if (k > tabN.length) {
     console.log(
       "Attention, votre nombre d'extraction est plus grand que le nombre"
     );
-  } else if ((k = tableauSimple.length)) {
+  } else if (k == tableauSimple.length) {
     console.log("Aucun K nombre détecté");
   } else {
-    console.log(Math.min(...tableauSimple));
+    if (tableauSimple[0] !== 0) {
+      console.log(tableauSimple[0]);
+    } else {
+      console.log(tableauSimple[1]);
+    }
   }
 }
 
-kdigits(632899, 4);
-kdigits(111112, 2);
+kdigits(6302899, 4);
+// kdigits(111112, 2);
